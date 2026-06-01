@@ -1,9 +1,9 @@
-name: Continous Integration
+name: Continuous Integration
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -13,17 +13,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: verify HTML File Exists
+      - name: Verify HTML File Exists
         run: test -f index.html
-        
-      
 
-      - name: verify CSS file Exists
-        run: test -f style.CSS
+      - name: Verify CSS File Exists
+        run: test -f style.css
 
-      - name: verify JavaScript File Exists
-        run: test -f script.Js
+      - name: Verify JavaScript File Exists
+        run: test -f script.js
 
-      - name: CI Succcessful
+      - name: CI Successful
         run: echo "Website Passed Validation"
-        
