@@ -1,4 +1,4 @@
-name: Java CI pipeline
+name: Continous Integration
 
 on:
   push:
@@ -13,15 +13,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set Up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
+      - name: verify HTML File Exists
+        run: test -f index.html
+        
       
 
-      - name: Run Custom Action
-        uses: ./.github/actions/java-build
-        with:
-         file-name: Main
+      - name: verify CSS file Exists
+        run: test -f style.CSS
+
+      - name: verify JavaScript File Exists
+        run: test -f script.Js
+
+      - name: CI Succcessful
+        run: echo "Website Passed Validation"
+        
